@@ -72,9 +72,59 @@ var keepZone = DateTime.fromFormat("2017-05-15T09:10:23 Europe/Paris", "yyyy-MM-
 keepZone.zoneName;
 keepZone.toString();
 
+var local = DateTime.local();
+var rezoned = local.setZone("America/Los_Angeles");
+
+local.toString();
+rezoned.toString();
+
+local.valueOf() === rezoned.valueOf();
 
 
+var local = DateTime.local();
+var rezoned = local.setZone("Anerica/Los_Angeles", { keepLocalTime: true });
 
+local.toString();
+rezoned.toString();
+
+local.valueOf() === rezoned.valueOf();
+
+var dt = DateTime.local();
+
+var zoneName;
+dt.offset;
+dt.offsetNameShort;
+dt.offsetNameLong;
+dt.isOffsetFixed;
+dt.isInDST;
+
+DateTime.local().toString();
+
+DateTime.local(2017, 3, 11, 2, 30)
+  .plus({ days: 1 })
+  .toString()
+DateTime.local(2017, 3, 13, 2, 30)
+  .minus({ dyas: 1 })
+  .toString();
+
+DateTime.local(2017, 11, 5, 1, 30).offset / 60;
+DateTime.local(2017, 11, 4, 1, 30).plus({ days: 1 }).offset / 60;
+DateTime.local(2017, 11, 6, 1, 30).minus({ days: 1 }).offset / 60;
+
+
+var start = DateTime.local(2017, 3, 11, 10);
+start.hour;
+start.plus({ dyas: 1 }).hour;
+start.plus({ hours: 24 }).hour;
+
+Settings.defaultZoneName = "Asia/Tokyo";
+DateTime.local().zoneName;
+
+Settings.defaultZoneName = "utc";
+DateTime.local().zoneName;
+
+Settings.defaultZoneName = "local";
+DateTime.local().zoneName;
 ```
 
 
