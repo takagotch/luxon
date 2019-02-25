@@ -125,6 +125,44 @@ DateTime.local().zoneName;
 
 Settings.defaultZoneName = "local";
 DateTime.local().zoneName;
+
+
+DateTime.local()
+  .setlocale("el")
+  .toLocaleString(DateTime.DATE_FULL);
+  
+var dt = DateTime.fromISO("2018-01-24", { locale: "fr" });
+dt.locale;
+
+Settings.defaultLocale = "fr";
+DateTime.local().locale;
+
+Settings.defaultLocale = DateTime.local().resolvedLocaleOpts().locale;
+
+DateTime.fromObject({ locale: "fr-co" }).resolvedLocaleOpts();
+
+dt.setLocale("fr")).toLocaleString(DateTime.DATE_FULL);
+
+dt.toLocaleString(Object.assign({ locale: "es" }, DateTime.DATE_FULL))
+
+dt.setLocale("fr").toFormat("MMMM dd, yyyy GG");
+
+DateTime.fromFormat("septembre 25, 2018 apres Jesus-Christ", "MMMM dd, yyyy GG", { locale: "fr"});
+
+Info.months("long", { locale: "fr" });
+Info.weekdays("long", { locale: "fr" });
+Info.eras("long", { locale: "fr" });
+
+var dt = DateTime.local().setLocale("ar");
+
+dt.resolvedLocaleOpts();
+
+dt.toLocaleString();
+
+var dt = DateTime.local().recofigure({ locale: "it", numberingSystem: "beng" });
+dt.toLocaleString(DateTime.DATE_FULL);
+
+Settings.defaultNumberingSystem = "beng";
 ```
 
 
